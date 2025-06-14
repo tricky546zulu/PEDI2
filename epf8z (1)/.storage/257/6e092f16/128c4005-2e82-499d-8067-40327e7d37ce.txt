@@ -1,0 +1,2 @@
+$ ls -la src/data/vitalSigns.js
+-rw-r--r-- 1 root root 9180 Jun 12 08:19 src/data/vitalSigns.js

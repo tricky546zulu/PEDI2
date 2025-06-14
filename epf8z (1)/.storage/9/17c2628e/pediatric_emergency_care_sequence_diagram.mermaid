@@ -1,0 +1,81 @@
+sequenceDiagram
+    participant U as User
+    participant UI as UI Components
+    participant AS as AppState
+    participant SS as StorageService
+    participant DS as DataSyncService
+    participant API as APIService
+    
+    %% Application Initialization Flow
+    U->>UI: Opens application
+    UI->>AS: initApp()
+    AS->>SS: initDatabase()
+    SS-->>AS: Database initialized
+    AS->>DS: synchronizeData()
+    DS->>API: get('/api/sync/lastUpdate')
+    API-->>DS: Last update timestamp
+    DS->>SS: getAllItems('algorithms')
+    SS-->>DS: Stored algorithms
+    DS->>API: post('/api/sync', localData)
+    API-->>DS: Updated data
+    DS->>SS: saveItem(collection, item) (for each updated item)
+    DS-->>AS: Synchronization complete
+    AS-->>UI: Update application state
+    UI-->>U: Display main dashboard
+    
+    %% Patient Assessment Flow
+    U->>UI: Enters patient data (age, weight)
+    UI->>AS: setCurrentPatient(patientData)
+    AS->>SS: saveItem('session', patientData)
+    SS-->>AS: Patient data saved
+    AS-->>UI: Update patient context
+    UI-->>U: Display relevant tools for patient
+    
+    %% Algorithm Navigation Flow
+    U->>UI: Selects PALS algorithm
+    UI->>SS: getItem('algorithms', algorithmId)
+    SS-->>UI: Algorithm data
+    UI->>UI: getInitialStep()
+    UI-->>U: Display initial algorithm step
+    U->>UI: Makes decision at step
+    UI->>UI: evaluateOption(selectedOption)
+    UI->>UI: getNextSteps()
+    UI-->>U: Display next algorithm step
+    
+    %% Medication Calculation Flow
+    U->>UI: Selects medication
+    UI->>SS: getItem('medications', medicationId)
+    SS-->>UI: Medication data
+    UI->>AS: getCurrentPatient()
+    AS-->>UI: Patient data
+    UI->>UI: calculateDose(patient, routeId)
+    UI-->>U: Display calculated dose
+    
+    %% CPR Assistance Flow
+    U->>UI: Starts CPR session
+    UI->>AS: new CPRSession()
+    AS->>SS: saveItem('cprSessions', cprSession)
+    UI->>UI: startSession()
+    UI-->>U: Display CPR timer and guidance
+    U->>UI: Records intervention
+    UI->>UI: addEvent(interventionEvent)
+    UI->>SS: saveItem('cprSessions', updatedSession)
+    SS-->>UI: Event saved
+    UI-->>U: Update CPR interface
+    U->>UI: Ends CPR session
+    UI->>UI: endSession()
+    UI->>SS: saveItem('cprSessions', completedSession)
+    UI->>DS: queueChange(cprSession, 'update')
+    SS-->>UI: Session saved
+    UI-->>U: Display CPR summary
+    
+    %% Offline to Online Synchronization
+    Note over U,API: User regains connectivity
+    DS->>DS: checkConnectivity() == true
+    DS->>DS: processQueue()
+    DS->>API: post('/api/sync', pendingChanges)
+    API-->>DS: Sync results
+    DS->>SS: clearProcessedItems()
+    DS->>AS: Update synced status
+    AS-->>UI: Update sync indicators
+    UI-->>U: Show sync complete notification

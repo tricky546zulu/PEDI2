@@ -1,0 +1,21 @@
+$ ls -la src/data/vitalSigns.js
+-rw-r--r-- 1 root root 9180 Jun 12 08:19 src/data/vitalSigns.js
+$ cd /tmp/pediatric_emergency_care && pnpm run lint
+
+
+> react-template@0.0.0 lint /tmp/pediatric_emergency_care
+> eslint ./src --quiet
+
+
+/tmp/pediatric_emergency_care/src/App.jsx
+  43:51  error  'ParametersPage' is not defined  react/jsx-no-undef
+
+✖ 1 problem (1 error, 0 warnings)
+
+ ELIFECYCLE  Command failed with exit code 1.
+$ cd /tmp/pediatric_emergency_care && pnpm run lint
+
+
+> react-template@0.0.0 lint /tmp/pediatric_emergency_care
+> eslint ./src --quiet
+

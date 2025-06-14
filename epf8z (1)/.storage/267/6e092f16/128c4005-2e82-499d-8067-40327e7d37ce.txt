@@ -1,0 +1,351 @@
+$ ls -la src/data/vitalSigns.js
+-rw-r--r-- 1 root root 9180 Jun 12 08:19 src/data/vitalSigns.js
+$ cd /tmp/pediatric_emergency_care && pnpm run lint
+
+
+> react-template@0.0.0 lint /tmp/pediatric_emergency_care
+> eslint ./src --quiet
+
+
+/tmp/pediatric_emergency_care/src/App.jsx
+  43:51  error  'ParametersPage' is not defined  react/jsx-no-undef
+
+✖ 1 problem (1 error, 0 warnings)
+
+ ELIFECYCLE  Command failed with exit code 1.
+$ cd /tmp/pediatric_emergency_care && pnpm run lint
+
+
+> react-template@0.0.0 lint /tmp/pediatric_emergency_care
+> eslint ./src --quiet
+
+$ cd /tmp/pediatric_emergency_care && pnpm run dev
+
+
+> react-template@0.0.0 dev /tmp/pediatric_emergency_care
+> vite
+
+Port 5173 is in use, trying another one...
+Port 5174 is in use, trying another one...
+
+  VITE v5.4.3  ready in 268 ms
+
+  ➜  Local:   http://localhost:5175/
+  ➜  Network: use --host to expose
+8:56:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+8:56:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+8:56:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+8:56:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+8:56:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+8:56:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+8:56:51 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+8:56:51 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+8:56:51 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+8:56:51 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+8:56:51 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+8:56:51 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+8:57:07 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+8:57:07 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+8:57:07 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+8:57:07 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+8:57:07 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+8:57:07 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+8:57:25 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+8:57:25 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+8:57:25 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+8:57:25 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+8:57:25 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+8:57:25 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+8:59:00 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+8:59:00 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+8:59:00 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+8:59:00 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+8:59:00 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+8:59:00 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+8:59:11 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+8:59:11 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+8:59:11 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+8:59:11 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+8:59:11 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+8:59:11 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+9:00:04 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+9:00:04 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+9:00:04 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+9:00:04 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+9:00:04 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+9:00:04 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+9:00:19 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+9:00:19 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+9:00:19 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+9:00:19 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+9:00:19 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+9:00:19 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+9:00:24 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+9:00:24 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+9:00:24 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+9:00:24 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+9:00:24 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+9:00:24 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+9:00:38 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+9:00:38 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+9:00:38 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+9:00:38 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+9:00:38 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+9:00:38 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+9:00:49 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+9:00:49 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+9:00:49 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+9:00:49 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+9:00:49 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+9:00:49 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+9:00:50 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+9:00:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+9:00:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+9:00:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+9:00:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+9:00:50 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+9:01:45 AM [vite] page reload _tmp_9446_d85bb44c0aa420b87cd3ad4df34eac39
+9:01:48 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+9:01:48 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+9:01:48 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+9:01:48 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+9:01:48 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+9:01:48 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+9:01:49 AM [vite] Internal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /tmp/pediatric_emergency_care/src/App.jsx:2:65
+  17 |  var _s = $RefreshSig$();
+  18 |  import React, { useEffect } from "react";
+  19 |  import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+     |                                                                    ^
+  20 |  import { AppProvider } from "./contexts/AppContext";
+  21 |  import Header from "./components/Header";
+      at TransformPluginContext._formatError (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49192:41)
+      at TransformPluginContext.error (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49187:16)
+      at normalizeUrl (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:63970:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64102:39
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:64029:7)
+      at async PluginContainer.transform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:49033:18)
+      at async loadAndTransform (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:51856:27)
+      at async viteTransformMiddleware (file:///tmp/pediatric_emergency_care/node_modules/.pnpm/vite@5.4.3/node_modules/vite/dist/node/chunks/dep-BaOMuo4I.js:61810:24)
+9:01:49 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Header.jsx". Does the file exist?
+9:01:49 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/components/Navigation.jsx". Does the file exist?
+9:01:49 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/HomePage.jsx". Does the file exist?
+9:01:49 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmsPage.jsx". Does the file exist?
+9:01:49 AM [vite] Pre-transform error: Failed to resolve import "react-router-dom" from "src/pages/AlgorithmDetailsPage.jsx". Does the file exist?
+9:01:50 AM [vite] page reload pnpm-lock.yaml.3613189816
+9:01:50 AM [vite] ✨ new dependencies optimized: react-router-dom
+9:01:50 AM [vite] ✨ optimized dependencies changed. reloading
+9:07:40 AM [vite] hmr update /src/pages/DosingPage.jsx, /src/index.css
+9:07:55 AM [vite] hmr update /src/pages/DosingPage.jsx, /src/index.css
+9:08:06 AM [vite] hmr update /src/pages/DosingPage.jsx, /src/index.css
+9:08:40 AM [vite] hmr update /src/pages/DosingPage.jsx, /src/index.css
+9:08:51 AM [vite] hmr update /src/pages/DosingPage.jsx, /src/index.css
+9:09:04 AM [vite] hmr update /src/pages/DosingPage.jsx, /src/index.css
+9:09:13 AM [vite] hmr update /src/pages/DosingPage.jsx, /src/index.css
+9:09:27 AM [vite] hmr update /src/pages/DosingPage.jsx, /src/index.css
+9:09:38 AM [vite] hmr update /src/pages/DosingPage.jsx, /src/index.css
+9:09:51 AM [vite] hmr update /src/pages/DosingPage.jsx, /src/index.css

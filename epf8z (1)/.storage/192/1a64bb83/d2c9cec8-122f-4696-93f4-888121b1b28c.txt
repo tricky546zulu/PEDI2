@@ -1,0 +1,3 @@
+$ cd /template/default_web_project/react_template
+$ cp -r /template/default_web_project/react_template /tmp/pediatric_emergency_care && cd /tmp/pediatric_emergency_care
+

@@ -1,0 +1,243 @@
+classDiagram
+    class User {
+        +string id
+        +string username
+        +string email
+        +string organizationId
+        +string role
+        +Object preferences
+        +Date lastLogin
+        +authenticate(credentials): AuthToken
+        +updatePreferences(preferences): User
+    }
+    
+    class Patient {
+        +string sessionId
+        +number ageMonths
+        +number weightKg
+        +number lengthCm
+        +string gender
+        +calculateBSA(): number
+        +getAgeCategory(): string
+    }
+    
+    class Algorithm {
+        +string id
+        +string name
+        +string category
+        +string description
+        +AlgorithmStep[] steps
+        +string version
+        +Date lastUpdated
+        +getInitialStep(): AlgorithmStep
+        +getStepById(id): AlgorithmStep
+    }
+    
+    class AlgorithmStep {
+        +string id
+        +string content
+        +string[] nextStepIds
+        +Decision[] decisions
+        +string[] relatedResources
+        +boolean isFinal
+        +getNextSteps(): AlgorithmStep[]
+        +hasDecision(): boolean
+    }
+    
+    class Decision {
+        +string id
+        +string question
+        +Option[] options
+        +evaluateOption(selectedOption): string
+    }
+    
+    class Option {
+        +string id
+        +string text
+        +string nextStepId
+    }
+    
+    class Medication {
+        +string id
+        +string name
+        +string category
+        +string description
+        +DoseCalculation[] calculations
+        +string[] contraindications
+        +string[] sideEffects
+        +string notes
+        +calculateDose(patient, routeId): Dose
+    }
+    
+    class DoseCalculation {
+        +string routeId
+        +string routeName
+        +string formula
+        +number minDose
+        +number maxDose
+        +string units
+        +calculateDose(weightKg): Dose
+    }
+    
+    class Dose {
+        +number value
+        +string units
+        +number concentration
+        +string concentrationUnits
+        +number volume
+        +string volumeUnits
+        +getDisplayText(): string
+    }
+    
+    class Equipment {
+        +string id
+        +string name
+        +string category
+        +string description
+        +SizeCalculation[] calculations
+        +string notes
+        +calculateSize(patient): string
+    }
+    
+    class SizeCalculation {
+        +string formula
+        +Object sizeChart
+        +calculateSize(ageMonths, weightKg, lengthCm): string
+    }
+    
+    class PhysiologicalParameter {
+        +string id
+        +string name
+        +string description
+        +Object normalRanges
+        +string units
+        +getNormalRange(ageMonths): Range
+    }
+    
+    class Range {
+        +number min
+        +number max
+        +isWithinRange(value): boolean
+        +getDisplayText(): string
+    }
+    
+    class Checklist {
+        +string id
+        +string name
+        +string description
+        +string category
+        +ChecklistItem[] items
+        +boolean isTemplate
+        +string organizationId
+        +Date lastUpdated
+        +createInstance(): Checklist
+        +resetAllItems(): void
+    }
+    
+    class ChecklistItem {
+        +string id
+        +string text
+        +boolean isCompleted
+        +boolean isCritical
+        +string notes
+        +toggleCompleted(): void
+    }
+    
+    class EmergencyContact {
+        +string id
+        +string name
+        +string category
+        +string[] phoneNumbers
+        +string address
+        +Object geoLocation
+        +string notes
+        +boolean isFavorite
+        +getDirectionsUrl(): string
+    }
+    
+    class CPRSession {
+        +string id
+        +Date startTime
+        +Date endTime
+        +number compressionRate
+        +CPREvent[] events
+        +boolean isActive
+        +startSession(): void
+        +endSession(): void
+        +addEvent(event): void
+        +getElapsedTime(): number
+    }
+    
+    class CPREvent {
+        +string id
+        +string type
+        +Date timestamp
+        +string details
+        +getTimeFromStart(startTime): number
+    }
+    
+    class AppState {
+        +User currentUser
+        +Patient currentPatient
+        +CPRSession activeCPRSession
+        +string currentView
+        +Object errorState
+        +boolean isOnline
+        +boolean isSyncing
+        +initApp(): Promise
+        +setCurrentPatient(patient): void
+        +resetState(): void
+        +checkConnectivity(): boolean
+    }
+    
+    class DataSyncService {
+        +boolean isSyncing
+        +Date lastSyncTime
+        +SyncQueue pendingChanges
+        +synchronizeData(): Promise
+        +queueChange(entity, operation): void
+        +handleConflict(localData, remoteData): Object
+    }
+    
+    class SyncQueue {
+        +QueueItem[] items
+        +addItem(item): void
+        +processQueue(): Promise
+        +clearProcessedItems(): void
+    }
+    
+    class APIService {
+        +string baseUrl
+        +Object headers
+        +get(endpoint): Promise
+        +post(endpoint, data): Promise
+        +put(endpoint, data): Promise
+        +delete(endpoint): Promise
+        +handleError(error): Error
+    }
+    
+    class StorageService {
+        +initDatabase(): Promise
+        +getItem(collection, id): Promise
+        +getAllItems(collection): Promise
+        +saveItem(collection, item): Promise
+        +deleteItem(collection, id): Promise
+        +clearCollection(collection): Promise
+    }
+    
+    User "1" -- "*" Checklist: creates
+    Algorithm "1" -- "*" AlgorithmStep: contains
+    AlgorithmStep "1" -- "*" Decision: may have
+    Decision "1" -- "*" Option: has
+    Medication "1" -- "*" DoseCalculation: has
+    DoseCalculation "1" -- "1" Dose: calculates
+    Equipment "1" -- "*" SizeCalculation: has
+    PhysiologicalParameter "1" -- "*" Range: provides
+    Checklist "1" -- "*" ChecklistItem: contains
+    CPRSession "1" -- "*" CPREvent: logs
+    AppState "1" -- "1" User: has
+    AppState "1" -- "0..1" Patient: has
+    AppState "1" -- "0..1" CPRSession: has
+    DataSyncService "1" -- "1" SyncQueue: manages
+    DataSyncService "1" -- "1" APIService: uses
+    DataSyncService "1" -- "1" StorageService: uses

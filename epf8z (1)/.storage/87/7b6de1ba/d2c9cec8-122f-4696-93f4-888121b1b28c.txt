@@ -1,0 +1,17 @@
+$ cd /data/chats/epf8z/workspace/react_template && pnpm i && pnpm run lint
+Lockfile is up to date, resolution step is skipped
+Packages: +393
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Done in 2.7s
+
+> react-template@0.0.0 lint /data/chats/epf8z/workspace/react_template
+> eslint ./src --quiet
+
+
+/data/chats/epf8z/workspace/react_template/src/pages/ParametersPage.jsx
+  82:25  error  Parsing error: Unexpected token >
+
+✖ 1 problem (1 error, 0 warnings)
+
+ ELIFECYCLE  Command failed with exit code 1.

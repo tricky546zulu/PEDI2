@@ -1,0 +1,1070 @@
+2025-06-12 09:34:37.331 | INFO     | chat:startup:2556 - Task chat-xdsxf start running.
+2025-06-12 09:34:37.353 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-12 09:34:37.412 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-12 09:34:37.710 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Mike'
+2025-06-12 09:34:37.729 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Emma'
+2025-06-12 09:34:37.748 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Bob'
+2025-06-12 09:34:37.767 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Alex'
+2025-06-12 09:34:37.778 | WARNING  | metagpt.tools.libs.search_template:_init_templates:356 - The template base directory does not exist: ../template
+2025-06-12 09:34:37.779 | INFO     | metagpt.tools.libs.search_template:engine:182 - RAG engine not initialized, initializing...
+2025-06-12 09:34:37.779 | WARNING  | metagpt.tools.libs.search_template:engine:185 - No templates found, please check the template path
+2025-06-12 09:34:37.780 | INFO     | metagpt.roles.di.frontend_engineer:set_search_template_tool:60 - SearchTemplate set
+2025-06-12 09:34:37.808 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'David'
+2025-06-12 09:34:37.829 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'User'
+2025-06-12 09:34:37.914 | INFO     | chat:set_llm:2088 - set_llm=claude-3-7-sonnet to ['Mike', 'Emma', 'Bob', 'Alex', 'David']
+2025-06-12 09:34:37.923 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-12 09:34:37.932 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-12 09:34:37.958 | INFO     | metagpt.environment.mgx.mgx_env:publish_message:35 - User Requirement: @Alex Restart service and preview; Recipient: True
+2025-06-12 09:34:38.266 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 09:34:38.267 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 09:34:38.268 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 09:34:38.270 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 09:34:38.320 | ERROR    | metagpt.utils.common:wrapper:683 - There is a exception in role's execution, in order to resume, we delete the newest role communication message in the role's memory.
+Traceback (most recent call last):
+
+  File "<frozen ..chat>", line 2001, in role_loop
+> File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7fca72284c10>, [{'role': 'system', 'content': '\n The current date in Los...
+                 └ <function OpenAILLM.acompletion_text at 0x7fcad94eb400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 140507494039760: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7fcad9662440>
+         └ <AsyncRetrying object at 0x7fcad94cba00 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcad94cb7f0>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7fcae053e440>
+           └ <Future at 0x7fca723d0130 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7fca72284c10>, [{'role': 'system', 'content': '\n The current date in Los...
+                   └ <function OpenAILLM.acompletion_text at 0x7fcad94eb370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7fca722853c0>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7fca72285510>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7fcaddf335b0>
+                 └ <openai.AsyncOpenAI object at 0x7fca722853c0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7fcaddf33640>
+                 └ <openai.AsyncOpenAI object at 0x7fca722853c0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7fcaddf31ab0>
+          └ <openai.AsyncOpenAI object at 0x7fca722853c0>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+2025-06-12 09:34:38.386 | ERROR    | chat:role_loop:2004 - Alex run error
+Traceback (most recent call last):
+
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7fca72284c10>, [{'role': 'system', 'content': '\n The current date in Los...
+                 └ <function OpenAILLM.acompletion_text at 0x7fcad94eb400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 140507494039760: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7fcad9662440>
+         └ <AsyncRetrying object at 0x7fcad94cba00 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcad94cb7f0>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7fcae053e440>
+           └ <Future at 0x7fca723d0130 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7fca72284c10>, [{'role': 'system', 'content': '\n The current date in Los...
+                   └ <function OpenAILLM.acompletion_text at 0x7fcad94eb370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7fca722853c0>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7fca72285510>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7fcaddf335b0>
+                 └ <openai.AsyncOpenAI object at 0x7fca722853c0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7fcaddf33640>
+                 └ <openai.AsyncOpenAI object at 0x7fca722853c0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7fcaddf31ab0>
+          └ <openai.AsyncOpenAI object at 0x7fca722853c0>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+> File "<frozen ..chat>", line 2001, in role_loop
+  File "<frozen ..metagpt.utils.common>", line 696, in wrapper
+
+Exception: Traceback (most recent call last):
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+2025-06-12 09:37:39.406 | INFO     | chat:stop:1580 - Task chat-xdsxf is stopped.
+2025-06-12 10:09:17.371 | INFO     | chat:startup:2556 - Task chat-xdsxf start running.
+2025-06-12 10:09:17.392 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-12 10:09:17.447 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-12 10:09:17.773 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Mike'
+2025-06-12 10:09:17.802 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Emma'
+2025-06-12 10:09:17.829 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Bob'
+2025-06-12 10:09:17.859 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Alex'
+2025-06-12 10:09:17.860 | WARNING  | metagpt.roles.di.frontend_engineer:set_search_template_tool:62 - SearchTemplate not set
+2025-06-12 10:09:17.890 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'David'
+2025-06-12 10:09:17.919 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'User'
+2025-06-12 10:09:17.945 | INFO     | chat:set_llm:2088 - set_llm=claude-3-7-sonnet to ['Mike', 'Emma', 'Bob', 'Alex', 'David']
+2025-06-12 10:09:17.957 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-12 10:09:17.967 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-12 10:09:17.992 | INFO     | metagpt.environment.mgx.mgx_env:publish_message:35 - User Requirement: @Alex  continue with your work; Recipient: True
+2025-06-12 10:09:18.010 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 10:09:18.011 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 10:09:18.011 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 10:09:18.012 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 10:09:18.014 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 10:09:18.076 | ERROR    | metagpt.utils.common:wrapper:683 - There is a exception in role's execution, in order to resume, we delete the newest role communication message in the role's memory.
+Traceback (most recent call last):
+
+  File "<frozen ..chat>", line 2001, in role_loop
+> File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f9260576f50>, [{'role': 'system', 'content': '\n The current date in Los...
+                 └ <function OpenAILLM.acompletion_text at 0x7f92c7793400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 140266680290560: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7f92c7952440>
+         └ <AsyncRetrying object at 0x7f92c777fa60 (stop=<tenacity.stop.stop_after_attempt object at 0x7f92c777f850>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7f92ceb9a440>
+           └ <Future at 0x7f9260577e20 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f9260576f50>, [{'role': 'system', 'content': '\n The current date in Los...
+                   └ <function OpenAILLM.acompletion_text at 0x7f92c7793370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f9260577700>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7f9260576fb0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f92cc20b5b0>
+                 └ <openai.AsyncOpenAI object at 0x7f9260577700>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f92cc20b640>
+                 └ <openai.AsyncOpenAI object at 0x7f9260577700>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f92cc209ab0>
+          └ <openai.AsyncOpenAI object at 0x7f9260577700>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+2025-06-12 10:09:18.168 | ERROR    | chat:role_loop:2004 - Alex run error
+Traceback (most recent call last):
+
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f9260576f50>, [{'role': 'system', 'content': '\n The current date in Los...
+                 └ <function OpenAILLM.acompletion_text at 0x7f92c7793400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 140266680290560: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7f92c7952440>
+         └ <AsyncRetrying object at 0x7f92c777fa60 (stop=<tenacity.stop.stop_after_attempt object at 0x7f92c777f850>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7f92ceb9a440>
+           └ <Future at 0x7f9260577e20 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f9260576f50>, [{'role': 'system', 'content': '\n The current date in Los...
+                   └ <function OpenAILLM.acompletion_text at 0x7f92c7793370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f9260577700>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7f9260576fb0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f92cc20b5b0>
+                 └ <openai.AsyncOpenAI object at 0x7f9260577700>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f92cc20b640>
+                 └ <openai.AsyncOpenAI object at 0x7f9260577700>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f92cc209ab0>
+          └ <openai.AsyncOpenAI object at 0x7f9260577700>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+> File "<frozen ..chat>", line 2001, in role_loop
+  File "<frozen ..metagpt.utils.common>", line 696, in wrapper
+
+Exception: Traceback (most recent call last):
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+2025-06-12 10:12:22.660 | INFO     | chat:stop:1580 - Task chat-xdsxf is stopped.
+2025-06-12 23:38:15.153 | INFO     | chat:startup:2556 - Task chat-xdsxf start running.
+2025-06-12 23:38:15.170 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-12 23:38:15.221 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-12 23:38:15.518 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Mike'
+2025-06-12 23:38:15.537 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Emma'
+2025-06-12 23:38:15.554 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Bob'
+2025-06-12 23:38:15.572 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Alex'
+2025-06-12 23:38:15.573 | WARNING  | metagpt.roles.di.frontend_engineer:set_search_template_tool:62 - SearchTemplate not set
+2025-06-12 23:38:15.591 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'David'
+2025-06-12 23:38:15.609 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'User'
+2025-06-12 23:38:15.673 | INFO     | chat:set_llm:2088 - set_llm=claude-3-7-sonnet to ['Mike', 'Emma', 'Bob', 'Alex', 'David']
+2025-06-12 23:38:15.681 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-12 23:38:15.690 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-12 23:38:15.717 | INFO     | metagpt.environment.mgx.mgx_env:publish_message:35 - User Requirement: @Alex  continue with your work; Recipient: True
+2025-06-12 23:38:15.735 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 23:38:15.736 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 23:38:15.736 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 23:38:15.737 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 23:38:15.737 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 23:38:15.738 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-12 23:38:15.794 | ERROR    | metagpt.utils.common:wrapper:683 - There is a exception in role's execution, in order to resume, we delete the newest role communication message in the role's memory.
+Traceback (most recent call last):
+
+  File "<frozen ..chat>", line 2001, in role_loop
+> File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7fca7e366e30>, [{'role': 'system', 'content': '\n The current date in Los...
+                 └ <function OpenAILLM.acompletion_text at 0x7fcae5843400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 140507700793488: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7fcae597a440>
+         └ <AsyncRetrying object at 0x7fcae58279d0 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcae58277c0>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7fcaecb66440>
+           └ <Future at 0x7fca7e48ceb0 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7fca7e366e30>, [{'role': 'system', 'content': '\n The current date in Los...
+                   └ <function OpenAILLM.acompletion_text at 0x7fcae5843370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7fca7e3675e0>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7fca7e367730>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7fcaea1f35b0>
+                 └ <openai.AsyncOpenAI object at 0x7fca7e3675e0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7fcaea1f3640>
+                 └ <openai.AsyncOpenAI object at 0x7fca7e3675e0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7fcaea1f1ab0>
+          └ <openai.AsyncOpenAI object at 0x7fca7e3675e0>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+2025-06-12 23:38:15.865 | ERROR    | chat:role_loop:2004 - Alex run error
+Traceback (most recent call last):
+
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7fca7e366e30>, [{'role': 'system', 'content': '\n The current date in Los...
+                 └ <function OpenAILLM.acompletion_text at 0x7fcae5843400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 140507700793488: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7fcae597a440>
+         └ <AsyncRetrying object at 0x7fcae58279d0 (stop=<tenacity.stop.stop_after_attempt object at 0x7fcae58277c0>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7fcaecb66440>
+           └ <Future at 0x7fca7e48ceb0 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7fca7e366e30>, [{'role': 'system', 'content': '\n The current date in Los...
+                   └ <function OpenAILLM.acompletion_text at 0x7fcae5843370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7fca7e3675e0>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7fca7e367730>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7fcaea1f35b0>
+                 └ <openai.AsyncOpenAI object at 0x7fca7e3675e0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7fcaea1f3640>
+                 └ <openai.AsyncOpenAI object at 0x7fca7e3675e0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7fcaea1f1ab0>
+          └ <openai.AsyncOpenAI object at 0x7fca7e3675e0>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+> File "<frozen ..chat>", line 2001, in role_loop
+  File "<frozen ..metagpt.utils.common>", line 696, in wrapper
+
+Exception: Traceback (most recent call last):
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+2025-06-12 23:39:55.140 | INFO     | chat:set_llm:2088 - set_llm=claude-3-7-sonnet to ['Mike', 'Emma', 'Bob', 'Alex', 'David']
+2025-06-12 23:39:55.154 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-12 23:39:55.162 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-12 23:39:55.177 | INFO     | metagpt.environment.mgx.mgx_env:publish_message:35 - User Requirement: @Alex  continue with your work; Recipient: True
+2025-06-12 23:42:56.655 | INFO     | chat:stop:1580 - Task chat-xdsxf is stopped.
+2025-06-13 19:45:55.986 | INFO     | chat:startup:2556 - Task chat-xdsxf start running.
+2025-06-13 19:45:56.015 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-13 19:45:56.089 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-13 19:45:56.541 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Mike'
+2025-06-13 19:45:56.562 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Emma'
+2025-06-13 19:45:56.582 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Bob'
+2025-06-13 19:45:56.603 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Alex'
+2025-06-13 19:45:56.604 | WARNING  | metagpt.roles.di.frontend_engineer:set_search_template_tool:62 - SearchTemplate not set
+2025-06-13 19:45:56.627 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'David'
+2025-06-13 19:45:56.647 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'User'
+2025-06-13 19:45:56.769 | INFO     | chat:set_llm:2088 - set_llm=claude-3-7-sonnet to ['Mike', 'Emma', 'Bob', 'Alex', 'David']
+2025-06-13 19:45:56.780 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-13 19:45:56.789 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-13 19:45:56.825 | INFO     | metagpt.environment.mgx.mgx_env:publish_message:35 - User Requirement: When do my credits reset to 750k ; Recipient: False
+2025-06-13 19:45:56.839 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 19:45:56.840 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 19:45:56.840 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 19:45:56.840 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 19:45:56.841 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 19:45:56.841 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 19:45:56.841 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 19:45:56.843 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 19:45:56.919 | ERROR    | metagpt.utils.common:wrapper:683 - There is a exception in role's execution, in order to resume, we delete the newest role communication message in the role's memory.
+Traceback (most recent call last):
+
+  File "<frozen ..chat>", line 2001, in role_loop
+> File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f6b617a0d30>, [{'role': 'system', 'content': '\n\n The current date in L...
+                 └ <function OpenAILLM.acompletion_text at 0x7f6bc89cb400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 140099173617328: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7f6bc8b4a440>
+         └ <AsyncRetrying object at 0x7f6bc89b39d0 (stop=<tenacity.stop.stop_after_attempt object at 0x7f6bc89b37c0>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7f6bcfdca440>
+           └ <Future at 0x7f6b617a1450 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f6b617a0d30>, [{'role': 'system', 'content': '\n\n The current date in L...
+                   └ <function OpenAILLM.acompletion_text at 0x7f6bc89cb370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f6b617a0fa0>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7f6b61780d90>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f6bcd43b5b0>
+                 └ <openai.AsyncOpenAI object at 0x7f6b617a0fa0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f6bcd43b640>
+                 └ <openai.AsyncOpenAI object at 0x7f6b617a0fa0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f6bcd439ab0>
+          └ <openai.AsyncOpenAI object at 0x7f6b617a0fa0>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+2025-06-13 19:45:56.977 | ERROR    | chat:role_loop:2004 - Mike run error
+Traceback (most recent call last):
+
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f6b617a0d30>, [{'role': 'system', 'content': '\n\n The current date in L...
+                 └ <function OpenAILLM.acompletion_text at 0x7f6bc89cb400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 140099173617328: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7f6bc8b4a440>
+         └ <AsyncRetrying object at 0x7f6bc89b39d0 (stop=<tenacity.stop.stop_after_attempt object at 0x7f6bc89b37c0>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7f6bcfdca440>
+           └ <Future at 0x7f6b617a1450 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f6b617a0d30>, [{'role': 'system', 'content': '\n\n The current date in L...
+                   └ <function OpenAILLM.acompletion_text at 0x7f6bc89cb370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f6b617a0fa0>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7f6b61780d90>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f6bcd43b5b0>
+                 └ <openai.AsyncOpenAI object at 0x7f6b617a0fa0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f6bcd43b640>
+                 └ <openai.AsyncOpenAI object at 0x7f6b617a0fa0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f6bcd439ab0>
+          └ <openai.AsyncOpenAI object at 0x7f6b617a0fa0>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+> File "<frozen ..chat>", line 2001, in role_loop
+  File "<frozen ..metagpt.utils.common>", line 696, in wrapper
+
+Exception: Traceback (most recent call last):
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+2025-06-13 19:48:59.227 | INFO     | chat:stop:1580 - Task chat-xdsxf is stopped.
+2025-06-13 21:27:31.467 | INFO     | chat:startup:2556 - Task chat-xdsxf start running.
+2025-06-13 21:27:31.499 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-13 21:27:31.577 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-13 21:27:31.915 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Mike'
+2025-06-13 21:27:31.952 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Emma'
+2025-06-13 21:27:31.986 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Bob'
+2025-06-13 21:27:32.017 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'Alex'
+2025-06-13 21:27:32.018 | WARNING  | metagpt.roles.di.frontend_engineer:set_search_template_tool:62 - SearchTemplate not set
+2025-06-13 21:27:32.042 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'David'
+2025-06-13 21:27:32.064 | INFO     | metagpt.roles.di.role_zero:set_longterm_memory:205 - Compressable memory set for role 'User'
+2025-06-13 21:27:32.110 | INFO     | chat:set_llm:2088 - set_llm=claude-3-7-sonnet to ['Mike', 'Emma', 'Bob', 'Alex', 'David']
+2025-06-13 21:27:32.123 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-13 21:27:32.135 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-13 21:27:32.147 | INFO     | metagpt.environment.mgx.mgx_env:publish_message:35 - User Requirement: @Mike  continue with your work; Recipient: False
+2025-06-13 21:27:32.151 | INFO     | chat:set_llm:2088 - set_llm=claude-3-7-sonnet to ['Mike', 'Emma', 'Bob', 'Alex', 'David']
+2025-06-13 21:27:32.165 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-13 21:27:32.179 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-13 21:27:32.208 | INFO     | metagpt.environment.mgx.mgx_env:publish_message:35 - User Requirement: github.com/tricky546zulu/PEDI.git; Recipient: False
+2025-06-13 21:27:32.214 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 21:27:32.216 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 21:27:32.218 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 21:27:32.219 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 21:27:32.219 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 21:27:32.220 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 21:27:32.220 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 21:27:32.221 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 21:27:32.223 | WARNING  | metagpt.utils.token_counter:count_message_tokens:303 - Use cl100k_base * 1.26 to estimate the input tokens of the claude model.
+2025-06-13 21:27:32.297 | INFO     | chat:set_llm:2088 - set_llm=deepseek-chat to ['Mike', 'Emma', 'Bob', 'Alex', 'David']
+2025-06-13 21:27:32.309 | INFO     | metagpt.configs.supabase_config:initialize:36 - Supabase is not enabled.
+2025-06-13 21:27:32.325 | WARNING  | metagpt.rag.schema:check_dimensions:56 - You didn't set dimensions in config when using EmbeddingType.OPENAI, default to 1536
+2025-06-13 21:27:32.353 | INFO     | metagpt.environment.mgx.mgx_env:publish_message:35 - User Requirement: github.com/tricky546zulu/PEDI.git; Recipient: False
+2025-06-13 21:27:32.387 | ERROR    | metagpt.utils.common:wrapper:683 - There is a exception in role's execution, in order to resume, we delete the newest role communication message in the role's memory.
+Traceback (most recent call last):
+
+  File "<frozen ..chat>", line 2001, in role_loop
+> File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f49b49ffc40>, [{'role': 'system', 'content': '\n\n The current date in L...
+                 └ <function OpenAILLM.acompletion_text at 0x7f4a1c7e7400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 139954571822944: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7f4a1c962440>
+         └ <AsyncRetrying object at 0x7f4a1c7cba30 (stop=<tenacity.stop.stop_after_attempt object at 0x7f4a1c7cb820>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7f4a23bb6440>
+           └ <Future at 0x7f49b4aa1d20 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f49b49ffc40>, [{'role': 'system', 'content': '\n\n The current date in L...
+                   └ <function OpenAILLM.acompletion_text at 0x7f4a1c7e7370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f49b49ffdc0>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7f49a3f2f820>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f4a2123b5b0>
+                 └ <openai.AsyncOpenAI object at 0x7f49b49ffdc0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f4a2123b640>
+                 └ <openai.AsyncOpenAI object at 0x7f49b49ffdc0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f4a21239ab0>
+          └ <openai.AsyncOpenAI object at 0x7f49b49ffdc0>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+2025-06-13 21:27:32.474 | ERROR    | chat:role_loop:2004 - Mike run error
+Traceback (most recent call last):
+
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f49b49ffc40>, [{'role': 'system', 'content': '\n\n The current date in L...
+                 └ <function OpenAILLM.acompletion_text at 0x7f4a1c7e7400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 139954571822944: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7f4a1c962440>
+         └ <AsyncRetrying object at 0x7f4a1c7cba30 (stop=<tenacity.stop.stop_after_attempt object at 0x7f4a1c7cb820>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7f4a23bb6440>
+           └ <Future at 0x7f49b4aa1d20 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f49b49ffc40>, [{'role': 'system', 'content': '\n\n The current date in L...
+                   └ <function OpenAILLM.acompletion_text at 0x7f4a1c7e7370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f49b49ffdc0>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7f49a3f2f820>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f4a2123b5b0>
+                 └ <openai.AsyncOpenAI object at 0x7f49b49ffdc0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f4a2123b640>
+                 └ <openai.AsyncOpenAI object at 0x7f49b49ffdc0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f4a21239ab0>
+          └ <openai.AsyncOpenAI object at 0x7f49b49ffdc0>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+> File "<frozen ..chat>", line 2001, in role_loop
+  File "<frozen ..metagpt.utils.common>", line 696, in wrapper
+
+Exception: Traceback (most recent call last):
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+2025-06-13 21:27:32.644 | ERROR    | metagpt.utils.common:wrapper:683 - There is a exception in role's execution, in order to resume, we delete the newest role communication message in the role's memory.
+Traceback (most recent call last):
+
+  File "<frozen ..chat>", line 2001, in role_loop
+> File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f49b571b2b0>, [{'role': 'system', 'content': '\n\n The current date in L...
+                 └ <function OpenAILLM.acompletion_text at 0x7f4a1c7e7400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 139954553466944: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7f4a1c962440>
+         └ <AsyncRetrying object at 0x7f4a1c7cba30 (stop=<tenacity.stop.stop_after_attempt object at 0x7f4a1c7cb820>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7f4a23bb6440>
+           └ <Future at 0x7f49b546fa60 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f49b571b2b0>, [{'role': 'system', 'content': '\n\n The current date in L...
+                   └ <function OpenAILLM.acompletion_text at 0x7f4a1c7e7370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f49b571b280>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7f49b571add0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f4a2123b5b0>
+                 └ <openai.AsyncOpenAI object at 0x7f49b571b280>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f4a2123b640>
+                 └ <openai.AsyncOpenAI object at 0x7f49b571b280>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f4a21239ab0>
+          └ <openai.AsyncOpenAI object at 0x7f49b571b280>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+2025-06-13 21:27:32.715 | ERROR    | chat:role_loop:2004 - Mike run error
+Traceback (most recent call last):
+
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+                 │   │       └ {'stream': True, 'timeout': 600}
+                 │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f49b571b2b0>, [{'role': 'system', 'content': '\n\n The current date in L...
+                 └ <function OpenAILLM.acompletion_text at 0x7f4a1c7e7400>
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+         │    │                └ <RetryCallState 139954553466944: attempt #1; slept for 0.0; last result: failed (PermissionDeniedError Error code: 403 - {'er...
+         │    └ <function BaseRetrying.iter at 0x7f4a1c962440>
+         └ <AsyncRetrying object at 0x7f4a1c7cba30 (stop=<tenacity.stop.stop_after_attempt object at 0x7f4a1c7cb820>, wait=<tenacity.wai...
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+           │   └ <function Future.result at 0x7f4a23bb6440>
+           └ <Future at 0x7f49b546fa60 state=finished raised PermissionDeniedError>
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+           └ None
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+          └ None
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'stream': True, 'timeout': 600}
+                   │   └ (<metagpt.provider.openai_api.OpenAILLM object at 0x7f49b571b2b0>, [{'role': 'system', 'content': '\n\n The current date in L...
+                   └ <function OpenAILLM.acompletion_text at 0x7f4a1c7e7370>
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f49b571b280>>
+                 └ <openai.resources.chat.completions.AsyncCompletions object at 0x7f49b571add0>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', timeout=600, files=None, json_data={'messages': [{'role': 'system...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f4a2123b5b0>
+                 └ <openai.AsyncOpenAI object at 0x7f49b571b280>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f4a2123b640>
+                 └ <openai.AsyncOpenAI object at 0x7f49b571b280>
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f4a21239ab0>
+          └ <openai.AsyncOpenAI object at 0x7f49b571b280>
+
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+> File "<frozen ..chat>", line 2001, in role_loop
+  File "<frozen ..metagpt.utils.common>", line 696, in wrapper
+
+Exception: Traceback (most recent call last):
+  File "<frozen ..metagpt.utils.common>", line 674, in wrapper
+  File "<frozen ..metagpt.roles.role>", line 549, in run
+  File "<frozen ..metagpt.roles.role>", line 513, in react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 379, in _react
+  File "<frozen ..metagpt.roles.di.role_zero>", line 436, in _quick_think
+  File "<frozen ..metagpt.provider.base_llm>", line 158, in aask
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 88, in async_wrapped
+    return await fn(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 47, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/opt/conda/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.10/site-packages/tenacity/_asyncio.py", line 50, in __call__
+    result = await fn(*args, **kwargs)
+  File "<frozen ..metagpt.provider.openai_api>", line 168, in acompletion_text
+  File "<frozen ..metagpt.provider.openai_api>", line 93, in _achat_completion_stream
+  File "/opt/conda/lib/python3.10/site-packages/openai/resources/chat/completions.py", line 1295, in create
+    return await self._post(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1536, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1315, in request
+    return await self._request(
+  File "/opt/conda/lib/python3.10/site-packages/openai/_base_client.py", line 1392, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.PermissionDeniedError: Error code: 403 - API request failed, please check the subscription quota or contact the administrator.
+
+2025-06-13 21:30:35.276 | INFO     | chat:stop:1580 - Task chat-xdsxf is stopped.
